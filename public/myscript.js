@@ -11,6 +11,9 @@ const fetchApi = async (newUrl, options) => {
   const data = await response.json();
   //console.log(data.records);
   pinArray.push(...data.records);
+  for (const obj in pinArray) {
+    await sendDataToDb(obj);
+  }
 };
 
 const sendDataToDb = async (obj) => {
@@ -21,9 +24,9 @@ const sendDataToDb = async (obj) => {
     },
     body: JSON.stringify(obj),
   };
-  const url = 'http://localhost:3000/save';
+  const url = 'http://localhost:3000/save/';
 
-  fetch(url, options).then(function (r) {
+  await fetch(url, options).then(function (r) {
     console.log(r);
   });
 };
@@ -47,6 +50,4 @@ sendRequestBtnEL.addEventListener('click', sendRequestToPost);
 saveDataEl.addEventListener('click', sendDataToDb);
 
 //console.log(pinArray);
-for (const obj in pinArray) {
-  sendDataToDb(obj);
-}
+
