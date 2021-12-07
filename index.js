@@ -110,7 +110,7 @@ app.post('/save/', async (req, res) => {
         )
     `;
 
-  await dbObj.run(postQuery);
+  //await dbObj.run(postQuery);
 
   let countRow = `select count(*) from pincode;`;
   let count = await dbObj.get(countRow);
