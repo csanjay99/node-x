@@ -59,8 +59,8 @@ initializeDbAndServer();
 
 app.get('/', (req, res) => {
   try {
-    var public = path.join(__dirname, 'public');
-    res.sendFile(path.join(public, 'index.html'), (e) => {
+    var public1 = path.join(__dirname, 'public');
+    res.sendFile(path.join(public1, 'index.html'), (e) => {
       console.log(`Error sending html : ${e.message}`);
     });
   } catch (e) {
