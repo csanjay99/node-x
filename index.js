@@ -9,7 +9,7 @@ app.use(express.static(__dirname + '/public'));
 
 let dbObj = null;
 
-let dbFilePath = path.join(__dirname, 'pincode_details.db');
+let dbFilePath = path.join(__dirname, 'pincode_details.sqlite');
 
 const initializeDbAndServer = async () => {
   try {
